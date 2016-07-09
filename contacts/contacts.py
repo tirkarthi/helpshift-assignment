@@ -2,6 +2,7 @@
 from __future__ import print_function
 import re
 
+
 def store_contact(name, names):
     '''
     @param name   - Name to be stored
@@ -10,6 +11,7 @@ def store_contact(name, names):
     '''
     names.append(name)
     return names
+
 
 def search_contact(contact, contacts):
     '''
@@ -21,7 +23,7 @@ def search_contact(contact, contacts):
     1. Matching is case sensitive
     2. If there is more than one exact match then they are sorted by the index of the first character
     3. If there are partial matches they are displayed after exact matches and they are also sorted by the index of the first character
-    
+
 
     '''
     bounded_regex = re.compile(r"\b{}\b".format(contact))
@@ -35,7 +37,8 @@ def search_contact(contact, contacts):
         else:
             return 1, match.start()
 
-    return list(map(lambda x: x[0], sorted(names, key = lambda x: sort_by_exact_index(x[0], x[1]))))
+    return list(map(lambda x: x[0], sorted(names, key=lambda x: sort_by_exact_index(x[0], x[1]))))
+
 
 def is_valid_name(name):
     '''
@@ -49,6 +52,7 @@ def is_valid_name(name):
     '''
     return bool(len(name) <= 50 and re.match("^[A-Za-z]+(\s?[A-Za-z]+)?$", name))
 
+
 def format_result(result):
     '''
     @param result            - A list of matched names
@@ -60,11 +64,13 @@ def format_result(result):
         formatted_result = "No match found"
     return formatted_result
 
+
 def get_exit_message():
     '''
     return the exit message
     '''
     return "Happy searching"
+
 
 def get_input(prompt):
     '''

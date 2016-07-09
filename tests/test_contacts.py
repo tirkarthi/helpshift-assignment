@@ -10,6 +10,7 @@ except ImportError as e:
     sys.path.append(join(PROJECT_PATH, "contacts"))
     from contacts import *
 
+
 class ValidNamesTest(unittest.TestCase):
 
     def test_is_valid_name(self):
@@ -21,7 +22,7 @@ class ValidNamesTest(unittest.TestCase):
         self.assertFalse(is_valid_name("Chris Catherine "))
         self.assertFalse(is_valid_name(" Chris Catherine"))
 
-    
+
 class StoreNamesTest(unittest.TestCase):
 
     def setUp(self):
@@ -34,6 +35,7 @@ class StoreNamesTest(unittest.TestCase):
     def test_contact_store(self):
         self.assertEqual(store_contact("Chris Catherine", self.names), ["Chris Catherine"])
         self.assertEqual(store_contact("Chris Donald", self.names), ["Chris Catherine", "Chris Donald"])
+
 
 class SearchNamesTest(unittest.TestCase):
 
