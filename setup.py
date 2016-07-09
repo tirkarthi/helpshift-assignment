@@ -1,6 +1,5 @@
 from setuptools import setup
 from os import path
-import tarfile
 
 DIR_NAME = path.abspath(path.dirname(__file__))
 
@@ -23,16 +22,16 @@ setup(name='Contacts',
         'Intended Audience :: Authors Students',
         'Topic :: Software Development :: Build Tools',
 
-        'License :: OSI Approved :: MIT License',
-
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.2',
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
         ],
-      scripts = ['scripts/contacts'],
-      test_suite='nose.collector',
-      tests_require=['nose'],
       packages=['contacts'],
-      zip_safe=False)
+      entry_points = {
+          'console_scripts': ['contact-search=contacts.command_line:main'],
+      },
+      include_package_dirs=True,
+      zip_safe=False
+)

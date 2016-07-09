@@ -11,7 +11,7 @@ except ImportError as e:
     sys.path.append(join(PROJECT_PATH, "contacts"))
     from contacts import *
 
-if __name__ == "__main__":
+def main():
     contacts = []
     prompt_name = "Enter name: "
     while True:
@@ -34,3 +34,6 @@ if __name__ == "__main__":
             break
         else:
             print("Invalid choice")
+
+if __name__ == "__main__":
+    main()
