@@ -1,2 +1,5 @@
 language: python
 script: python tests/test_contacts.py
+
+notifications:
+  email: false
